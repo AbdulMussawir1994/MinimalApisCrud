@@ -1,0 +1,35 @@
+@MinimalApisCrud_HostAddress = http://localhost:5077
+
+GET {{MinimalApisCrud_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###Get
+GET {{MinimalApisCrud_HostAddress}}/List
+Accept: application/json
+
+###Add
+POST {{MinimalApisCrud_HostAddress}}/Add
+Content-Type: application/json
+{
+  "name": "Abdul Mussawir",
+  "department": "IT",
+  "salary": 20000
+}
+
+###Update
+PUT {{MinimalApisCrud_HostAddress}}/Update
+Content-Type: application/json
+{
+  "id": 1,
+  "name": "Abdul Mussawir1994",
+  "department": "Finance",
+  "salary": 30000
+}
+
+###GetById
+GET {{MinimalApisCrud_HostAddress}}/GetById/1
+Accept: application/json
+
+###DeleteById
+DELETE {{MinimalApisCrud_HostAddress}}/Delete/1
+Accept: application/json
