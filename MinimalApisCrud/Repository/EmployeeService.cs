@@ -41,6 +41,8 @@ public class EmployeeService : IEmployeeService
             return GenericResponse<bool>.Failure(false, " Invalid employee id.", 204);
         }
 
+        _context.Remove(emp);//
+        await _context.SaveChangesAsync();//
         return GenericResponse<bool>.Success(true, true, "Employee deleted successfully.", 200);
     }
 

@@ -16,6 +16,14 @@ builder.Services.AddDbContext<EmployeeDbContext>(options =>
         });
 });
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AngularClient", policy =>
+        {
+            policy.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod();
+        });
+});
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
@@ -28,6 +36,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("AngularClient");
 //MinimalApis
 
 app.MapGet("/List", async (IEmployeeService service) =>
