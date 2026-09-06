@@ -1,4 +1,4 @@
-@MinimalApisCrud_HostAddress = https://localhost:7292
+@MinimalApisCrud_HostAddress = https://localhost:7047
 
 GET {{MinimalApisCrud_HostAddress}}/weatherforecast/
 Accept: application/json

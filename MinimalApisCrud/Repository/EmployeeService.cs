@@ -68,7 +68,7 @@ public class EmployeeService : IEmployeeService
             .ToListAsync();
 
         return emp.Any() ? GenericResponse<IReadOnlyList<EmployeeDto>>.Success(emp, true, "Employee fetched successfully", 200)
-                                         : GenericResponse<IReadOnlyList<EmployeeDto>>.Empty(Array.Empty<EmployeeDto>(), true, "Employee fetched successfully", 200);
+                                         : GenericResponse<IReadOnlyList<EmployeeDto>>.Empty(Array.Empty<EmployeeDto>(), false, "Employee fetched successfully but empty", 200);
     }
 
     public async Task<GenericResponse<EmployeeDto>> UpdateEmployeeAsync(EmployeeDto model)
